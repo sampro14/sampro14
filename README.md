@@ -40,4 +40,4 @@ I build production-oriented LLM systems: multi-agent workflows with LangGraph, h
 
 ### 📫 Reach me
 
-[LinkedIn](https://linkedin.com/in/YOUR_HANDLE) · [Email](mailto:YOUR_EMAIL)
+[LinkedIn](www.linkedin.com/in/sameer-atram-5a04322b2) · [Email](www.sam14atram@gmail.com)
