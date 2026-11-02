@@ -75,6 +75,8 @@ A persistent memory layer for AI agents that tracks **what is true now, what was
 
 A pattern for regulated conversations, shown on a fictional debt-collection call: the procedure is data, legal wording is verbatim, limits are enforced in code, and a change can't ship until the evals pass.
 
+<a href="https://sampro14.github.io/procedure-agent/"><img src="https://raw.githubusercontent.com/sampro14/procedure-agent/main/docs/assets/demo.gif" alt="Procedure agent chat countering a $40 request at the $100 minimum, with highlighted disclosures and a decision trace beside each reply" width="760" /></a>
+
 - **Verbatim disclosures:** legal wording is copied from the procedure, never generated or reworded
 - **Hard limits:** offers can only come from a `PaymentPlan` that refuses out-of-bounds terms
 - **A gate that is itself tested:** 9 replayed calls, 3 deterministic metrics, and 8 deliberate regressions the gate must catch
