@@ -90,6 +90,10 @@ A pattern for regulated conversations, shown on a fictional debt-collection call
 
 Describe a game in plain English, and a team of agents clarifies, plans, builds, validates and repairs it into a playable browser game.
 
+<a href="https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link"><img src="assets/agentic-game-builder-demo.gif" alt="Agentic Game Builder taking a space shooter idea, asking clarifying questions, then showing the game plan and the generated game running" width="760" /></a>
+
+**[Watch the full demo video](https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link)** (about 2 minutes). The clip above is sped up, with the wait during generation cut.
+
 ```mermaid
 flowchart LR
   U[Game idea] --> CL[Clarify] --> PL[Plan] --> B[Build] --> V{Validate}
