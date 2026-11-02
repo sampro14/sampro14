@@ -112,8 +112,6 @@ flowchart LR
 | [Text-to-Animated-video](https://github.com/sampro14/Text-to-Animated-video) | Text-to-image latent diffusion pipeline: custom VAE with a GAN discriminator, CLIP-style text encoder, and a job API that streams generated images | PyTorch, Diffusers, Transformers, Accelerate, Flask |
 | [Fashion-recommender](https://github.com/sampro14/Fashion-recommender) | Recommends visually similar clothes using ResNet50 image embeddings and nearest-neighbour search | TensorFlow, Keras, scikit-learn, OpenCV, Streamlit |
 | [Celebrity-lookalike](https://github.com/sampro14/Celebrity-lookalike) | Detects a face in a photo and finds the closest celebrity match by embedding similarity | VGGFace, MTCNN, Keras, OpenCV, scikit-learn, Streamlit |
-| [Chatbot-for-currency-conversion](https://github.com/sampro14/Chatbot-for-currency-conversion) | Intent-classification chatbot trained on a custom intents file | TensorFlow, Keras, scikit-learn, Flask |
-| [Exploratory-Data-Analysis](https://github.com/sampro14/Exploratory-Data-Analysis) | Visualization, correlation and outlier handling on the Iris dataset | pandas, NumPy, Matplotlib, seaborn, Jupyter |
 
 ---
 
