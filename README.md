@@ -48,7 +48,7 @@ Memory for AI agents that knows what's true now, what was true before, and what 
 
 Finds where an agent run went wrong, why, and whether it recovered. A locked-down Docker sandbox, not the model, decides whether the code works.
 
-**7 agents**, a bounded repair loop, and an evaluator that must catch **16 planted bugs** and pass **6 clean controls**.
+On held-out planted bugs it caught **15/15** runs with **0/9** false alarms, and blamed the right agent in **12/15**. [What that doesn't show](https://github.com/sampro14/agentval_system#results).
 
 [**▶ Watch a run**](https://github.com/sampro14/agentval_system#agenteval) · [Code](https://github.com/sampro14/agentval_system)
 
