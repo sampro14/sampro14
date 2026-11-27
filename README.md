@@ -42,7 +42,7 @@ Memory for AI agents that knows what's true now, what was true before, and what 
 </td>
 <td width="50%" valign="top">
 
-<a href="https://github.com/sampro14/agentval_system"><img src="https://raw.githubusercontent.com/sampro14/agentval_system/main/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="100%" /></a>
+<a href="https://sampro14.github.io/agentval_system/"><img src="https://raw.githubusercontent.com/sampro14/agentval_system/main/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="100%" /></a>
 
 ### [AgentEval](https://github.com/sampro14/agentval_system)
 
@@ -50,7 +50,7 @@ Finds where an agent run went wrong, why, and whether it recovered. A locked-dow
 
 On held-out planted bugs it caught **15/15** runs with **0/9** false alarms, and blamed the right agent in **12/15**. [What that doesn't show](https://github.com/sampro14/agentval_system#results).
 
-[**▶ Watch a run**](https://github.com/sampro14/agentval_system#agenteval) · [Code](https://github.com/sampro14/agentval_system)
+[**▶ Watch a run**](https://sampro14.github.io/agentval_system/) · [Code](https://github.com/sampro14/agentval_system)
 
 <sub>LangGraph · FastAPI · Next.js · Postgres · Redis · Docker</sub>
 
