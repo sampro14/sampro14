@@ -27,6 +27,7 @@ What I care about most is proving that agents work. My projects test agents agai
 | Project | What it shows | Demo | Code |
 |---|---|---|---|
 | **Memory Agent** | Memory that knows which facts are current and which to distrust | [Try in browser](https://sampro14.github.io/enterprise_engineering_memory_agent/) | [Repo](https://github.com/sampro14/enterprise_engineering_memory_agent) |
+| **InvoiceIQ** | Invoice to validated, ERP-ready JSON, with two independent model readings and rule checks in code | [Run locally, no API key](https://github.com/sampro14/invoiceiq#-try-it-in-30-seconds-no-api-key) | [Repo](https://github.com/sampro14/invoiceiq) |
 | **Procedure Agent** | A regulated chat agent with an eval gate that blocks bad releases | [Try in browser](https://sampro14.github.io/procedure-agent/) | [Repo](https://github.com/sampro14/procedure-agent) |
 | **AgentEval** | Finding where an agent run failed, why, and whether it recovered | [Watch below](#agenteval-multi-agent-reliability-and-evaluation-platform) | [Repo](https://github.com/sampro14/agentval_system) |
 | **Agentic Game Builder** | Plain-English idea to a playable browser game | [Watch video](https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link) | [Repo](https://github.com/sampro14/agentic-game-builder) |
@@ -39,7 +40,7 @@ What I care about most is proving that agents work. My projects test agents agai
 
 Most agent benchmarks report one success rate. AgentEval shows **where** a run went wrong, **why**, and whether it recovered.
 
-<img src="https://raw.githubusercontent.com/sampro14/agentval_system/workbench/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="760" />
+<img src="https://raw.githubusercontent.com/sampro14/agentval_system/main/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="760" />
 
 - **Seven specialized agents** (planner, researcher, coder, executor, validator, failure analyzer, repairer) with a bounded repair loop
 - **Ground truth from execution:** code runs in a locked-down Docker sandbox with CPU, memory and time limits and no network
@@ -54,7 +55,7 @@ Most agent benchmarks report one success rate. AgentEval shows **where** a run w
 
 A persistent memory layer for AI agents that tracks **what is true now, what was true before, and what to distrust**.
 
-<a href="https://sampro14.github.io/enterprise_engineering_memory_agent/"><img src="https://raw.githubusercontent.com/sampro14/enterprise_engineering_memory_agent/workbench/docs/assets/demo.gif" alt="Memory agent ingesting documents, flagging a conflicting claim, and answering cleanly after human review" width="760" /></a>
+<a href="https://sampro14.github.io/enterprise_engineering_memory_agent/"><img src="https://raw.githubusercontent.com/sampro14/enterprise_engineering_memory_agent/main/docs/assets/demo.gif" alt="Memory agent ingesting documents, flagging a conflicting claim, and answering cleanly after human review" width="760" /></a>
 
 | Synthetic benchmark, held-out seeds | Vector RAG | All docs in context | **This system** |
 |---|---|---|---|
@@ -65,9 +66,24 @@ A persistent memory layer for AI agents that tracks **what is true now, what was
 - **Questions across time:** what is true now, what was true on a given date, and when it changed
 - **Authority-aware:** weak claims can't overwrite accepted facts; they go to a human review queue
 - **Built as a service:** REST API, tenant-scoped API keys, and an async ingest queue with retries, on Postgres or SQLite
-- **Honest evaluation:** it clearly beats vector RAG, but the gap over all-docs-in-context is within noise at this scale, and experience memory lost to plain history. The [report](https://github.com/sampro14/enterprise_engineering_memory_agent/blob/workbench/docs/POC_REPORT.md) covers both
+- **Honest evaluation:** it clearly beats vector RAG, but the gap over all-docs-in-context is within noise at this scale, and experience memory lost to plain history. The [report](https://github.com/sampro14/enterprise_engineering_memory_agent/blob/main/docs/POC_REPORT.md) covers both
 
 **Stack:** Python, LangGraph, FastAPI, PostgreSQL, pgvector, SQLite, Docker, Gemini, Anthropic, OpenAI, GitHub Actions
+
+---
+
+### InvoiceIQ: Invoices to Validated, ERP-Ready JSON
+
+An agentic document pipeline for invoice PDFs, scans and phone photos that shows its confidence, rule checks, cost and latency on every run, and only approves a document when independent checks agree.
+
+<a href="https://github.com/sampro14/invoiceiq"><img src="https://raw.githubusercontent.com/sampro14/invoiceiq/main/docs/assets/review.png" alt="InvoiceIQ pausing a wrong-total invoice for human review, with the graph path, the reason and the extracted fields" width="760" /></a>
+
+- **Two independent readings:** models from different families read each invoice, and a disagreement on any required field blocks approval
+- **Rules in code, not in the prompt:** eight deterministic checks, including line and tax arithmetic, dates, ISO 4217 currency, and India GSTIN and UAE TRN formats
+- **Human in the loop:** doubtful documents pause the LangGraph run with `interrupt()` in a SQLite checkpoint and resume after a person approves or corrects them
+- **Evaluation set up before results:** a hash-locked 300-document held-out set, a single-prompt baseline and a CI regression gate; the held-out run with live models is still in progress
+
+**Stack:** Python, LangGraph, FastAPI, Gemini, Groq, PyMuPDF, Pydantic, Langfuse, GitHub Actions
 
 ---
 
@@ -114,8 +130,6 @@ flowchart LR
 | Project | What it does | Tech stack |
 |---|---|---|
 | [Text-to-Animated-video](https://github.com/sampro14/Text-to-Animated-video) | Text-to-image latent diffusion pipeline: custom VAE with a GAN discriminator, CLIP-style text encoder, and a job API that streams generated images | PyTorch, Diffusers, Transformers, Accelerate, Flask |
-| [Fashion-recommender](https://github.com/sampro14/Fashion-recommender) | Recommends visually similar clothes using ResNet50 image embeddings and nearest-neighbour search | TensorFlow, Keras, scikit-learn, OpenCV, Streamlit |
-| [Celebrity-lookalike](https://github.com/sampro14/Celebrity-lookalike) | Detects a face in a photo and finds the closest celebrity match by embedding similarity | VGGFace, MTCNN, Keras, OpenCV, scikit-learn, Streamlit |
 
 ---
 
@@ -126,7 +140,7 @@ flowchart LR
 | **Languages** | Python, C++, JavaScript, SQL |
 | **Agents and LLMs** | LangGraph, LangChain, OpenAI, Anthropic, Gemini, DeepSeek |
 | **Retrieval and memory** | pgvector, Qdrant, Pinecone, FAISS, hybrid BM25 + dense retrieval, RRF |
-| **Evaluation and LLM Ops** | DeepEval, LangSmith, MLflow, OpenTelemetry, pytest, Playwright |
+| **Evaluation and LLM Ops** | DeepEval, Langfuse, LangSmith, MLflow, OpenTelemetry, pytest, Playwright |
 | **Machine learning** | PyTorch, TensorFlow, Keras, scikit-learn, Diffusers, Transformers, OpenCV |
 | **Backend and data** | FastAPI, Flask, PostgreSQL, Redis, SQLite, SQLAlchemy, Alembic |
 | **Frontend** | Next.js, Three.js, Streamlit |
