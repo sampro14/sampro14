@@ -1,139 +1,112 @@
 <h1 align="center">Sameer Atram</h1>
 
 <p align="center">
-  <b>Applied AI Engineer</b> · Agentic AI, agent reliability and evaluation, RAG and agent memory
+  <b>Applied AI Engineer · I build LLM agents, and the evals that prove they work.</b>
 </p>
 
 <p align="center">
-  MTech CSE, IIT Hyderabad · Agentic AI Developer at <b>Amgo Games</b> · Hyderabad, India
+  MTech CSE, IIT Hyderabad · Agentic AI Developer at <b>Amgo Games</b> · Hyderabad, India (UTC+5:30, full UK and UAE working-day overlap)
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/sameer-atram-5a04322b2"><img src="https://img.shields.io/badge/LinkedIn-Sameer%20Atram-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="mailto:sam14atram@gmail.com"><img src="https://img.shields.io/badge/Email-Contact%20me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://sampro14.github.io/"><img src="https://img.shields.io/badge/Portfolio-sampro14.github.io-111827?style=for-the-badge" alt="Portfolio" /></a>
+  <a href="https://www.linkedin.com/in/sameer-atram"><img src="https://img.shields.io/badge/LinkedIn-Sameer%20Atram-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:sam14atram@gmail.com"><img src="https://img.shields.io/badge/Email-sam14atram%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
   <img src="https://img.shields.io/badge/Open%20to-Remote%20%2F%20Relocation-0F766E?style=for-the-badge" alt="Open to remote or relocation" />
 </p>
 
 ---
 
-## About me
+At **Amgo Games** I architected and own a FastAPI + LangGraph platform where GDD, planning, asset, coding and vision agents turn a one-line idea into a playable Three.js game. Before that, at **Winfo Solutions**, I built a four-agent LangGraph suite for Oracle ERP UI testing.
 
-I build **production-oriented LLM systems**: multi-agent workflows with LangGraph, hybrid retrieval, structured outputs, guardrails and evaluation. At Amgo Games, I'm building an agentic platform that turns natural-language game ideas into playable Three.js applications.
+In my own projects, an agent isn't done until something other than the model says it worked: an execution sandbox, a baseline, or a release gate. Each one also documents what didn't work.
 
-What I care about most is proving that agents work. My projects test agents against execution results, baselines and regression gates rather than relying on demos alone, and they document what didn't work.
+## Pinned work
 
-## Try these first
+<table>
+<tr>
+<td width="50%" valign="top">
 
-| Project | What it shows | Demo | Code |
-|---|---|---|---|
-| **Memory Agent** | Memory that knows which facts are current and which to distrust | [Try in browser](https://sampro14.github.io/enterprise_engineering_memory_agent/) | [Repo](https://github.com/sampro14/enterprise_engineering_memory_agent) |
-| **Procedure Agent** | A regulated chat agent with an eval gate that blocks bad releases | [Try in browser](https://sampro14.github.io/procedure-agent/) | [Repo](https://github.com/sampro14/procedure-agent) |
-| **AgentEval** | Finding where an agent run failed, why, and whether it recovered | [Watch below](#agenteval-multi-agent-reliability-and-evaluation-platform) | [Repo](https://github.com/sampro14/agentval_system) |
-| **Agentic Game Builder** | Plain-English idea to a playable browser game | [Watch video](https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link) | [Repo](https://github.com/sampro14/agentic-game-builder) |
+<a href="https://sampro14.github.io/enterprise_engineering_memory_agent/"><img src="https://raw.githubusercontent.com/sampro14/enterprise_engineering_memory_agent/main/docs/assets/demo.gif" alt="Memory agent ingesting documents, flagging a conflicting claim, and answering cleanly after human review" width="100%" /></a>
 
----
+### [Memory Agent](https://github.com/sampro14/enterprise_engineering_memory_agent)
 
-## Featured projects
+Memory for AI agents that knows what's true now, what was true before, and what to distrust.
 
-### AgentEval: Multi-Agent Reliability and Evaluation Platform
+**95%** accuracy vs **82%** for vector RAG, and **14%** stale or poisoned answers vs **43%**, on a held-out synthetic benchmark. [Honest caveats in the report](https://github.com/sampro14/enterprise_engineering_memory_agent/blob/main/docs/POC_REPORT.md).
 
-Most agent benchmarks report one success rate. AgentEval shows **where** a run went wrong, **why**, and whether it recovered.
+[**▶ Live demo**](https://sampro14.github.io/enterprise_engineering_memory_agent/) · [Code](https://github.com/sampro14/enterprise_engineering_memory_agent)
 
-<img src="https://raw.githubusercontent.com/sampro14/agentval_system/workbench/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="760" />
+<sub>LangGraph · FastAPI · Postgres + pgvector · async job queue</sub>
 
-- **Seven specialized agents** (planner, researcher, coder, executor, validator, failure analyzer, repairer) with a bounded repair loop
-- **Ground truth from execution:** code runs in a locked-down Docker sandbox with CPU, memory and time limits and no network
-- **Failure attribution:** a rule-based classifier with LLM fallback tags each failure with a category, the responsible agent and a fix
-- **Full observability:** every step is stored with its output, latency and tokens, and can be inspected in a live dashboard
+</td>
+<td width="50%" valign="top">
 
-**Stack:** Python, LangGraph, FastAPI, Next.js, PostgreSQL, Redis, SQLAlchemy, Alembic, Docker, Anthropic, OpenAI, Gemini, DeepSeek, GitHub Actions
+<a href="https://github.com/sampro14/agentval_system"><img src="https://raw.githubusercontent.com/sampro14/agentval_system/main/docs/media/demo.gif" alt="AgentEval dashboard showing one run passing and another failing, being diagnosed, and repairing itself" width="100%" /></a>
 
----
+### [AgentEval](https://github.com/sampro14/agentval_system)
 
-### Enterprise Engineering Memory Agent: Memory That Knows What's True Now
+Finds where an agent run went wrong, why, and whether it recovered. A locked-down Docker sandbox, not the model, decides whether the code works.
 
-A persistent memory layer for AI agents that tracks **what is true now, what was true before, and what to distrust**.
+**7 agents**, a bounded repair loop, and an evaluator that must catch **16 planted bugs** and pass **6 clean controls**.
 
-<a href="https://sampro14.github.io/enterprise_engineering_memory_agent/"><img src="https://raw.githubusercontent.com/sampro14/enterprise_engineering_memory_agent/workbench/docs/assets/demo.gif" alt="Memory agent ingesting documents, flagging a conflicting claim, and answering cleanly after human review" width="760" /></a>
+[**▶ Watch a run**](https://github.com/sampro14/agentval_system#agenteval) · [Code](https://github.com/sampro14/agentval_system)
 
-| Synthetic benchmark, held-out seeds | Vector RAG | All docs in context | **This system** |
-|---|---|---|---|
-| Overall accuracy | 82% | 93% | **95%** |
-| Current-fact questions | 58% | 100% | **100%** |
-| Stale or poisoned answers (lower is better) | 43% | 16% | **14%** |
+<sub>LangGraph · FastAPI · Next.js · Postgres · Redis · Docker</sub>
 
-- **Questions across time:** what is true now, what was true on a given date, and when it changed
-- **Authority-aware:** weak claims can't overwrite accepted facts; they go to a human review queue
-- **Built as a service:** REST API, tenant-scoped API keys, and an async ingest queue with retries, on Postgres or SQLite
-- **Honest evaluation:** it clearly beats vector RAG, but the gap over all-docs-in-context is within noise at this scale, and experience memory lost to plain history. The [report](https://github.com/sampro14/enterprise_engineering_memory_agent/blob/workbench/docs/POC_REPORT.md) covers both
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-**Stack:** Python, LangGraph, FastAPI, PostgreSQL, pgvector, SQLite, Docker, Gemini, Anthropic, OpenAI, GitHub Actions
+<a href="https://sampro14.github.io/procedure-agent/"><img src="https://raw.githubusercontent.com/sampro14/procedure-agent/main/docs/assets/demo.gif" alt="Procedure agent chat countering a $40 request at the $100 minimum, with highlighted disclosures and a decision trace beside each reply" width="100%" /></a>
 
----
+### [Procedure Agent](https://github.com/sampro14/procedure-agent)
 
-### Procedure Agent: A Chat Agent That Follows a Written Procedure
+A chat agent for regulated conversations: legal wording is never paraphrased, limits can't be broken, and nothing ships until the replay evals pass.
 
-A pattern for regulated conversations, shown on a fictional debt-collection call: the procedure is data, legal wording is verbatim, limits are enforced in code, and a change can't ship until the evals pass.
+**9 replayed calls**, **3 deterministic metrics**, and **8 planted regressions** the release gate must catch.
 
-<a href="https://sampro14.github.io/procedure-agent/"><img src="https://raw.githubusercontent.com/sampro14/procedure-agent/main/docs/assets/demo.gif" alt="Procedure agent chat countering a $40 request at the $100 minimum, with highlighted disclosures and a decision trace beside each reply" width="760" /></a>
+[**▶ Live demo**](https://sampro14.github.io/procedure-agent/) (runs in your browser) · [Code](https://github.com/sampro14/procedure-agent)
 
-- **Verbatim disclosures:** legal wording is copied from the procedure, never generated or reworded
-- **Hard limits:** offers can only come from a `PaymentPlan` that refuses out-of-bounds terms
-- **A gate that is itself tested:** 9 replayed calls, 3 deterministic metrics, and 8 deliberate regressions the gate must catch
-- **No server:** the live demo runs the real Python package in the browser with Pyodide
+<sub>Python · DeepEval · pytest · Pyodide</sub>
 
-**Stack:** Python, DeepEval, pytest, Pyodide, YAML, GitHub Actions
+</td>
+<td width="50%" valign="top">
 
----
+<a href="https://github.com/sampro14/invoiceiq"><img src="https://raw.githubusercontent.com/sampro14/invoiceiq/main/docs/assets/review.png" alt="InvoiceIQ pausing a wrong-total invoice for human review, with the graph path, the reason and the extracted fields" width="100%" /></a>
 
-### Agentic Game Builder: From an Idea to a Playable Game
+### [InvoiceIQ](https://github.com/sampro14/invoiceiq)
 
-Describe a game in plain English, and a team of agents clarifies, plans, builds, validates and repairs it into a playable browser game.
+Invoice PDFs, scans and photos to validated, ERP-ready JSON, approved only when two model families and eight code-level checks agree.
 
-<a href="https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link"><img src="assets/agentic-game-builder-demo.gif" alt="Agentic Game Builder taking a space shooter idea, asking clarifying questions, then showing the game plan and the generated game running" width="760" /></a>
+Checks include **UAE TRN** and **India GSTIN** formats; doubtful documents pause for human review. Held-out results on 300 documents are in progress.
 
-**[Watch the full demo video](https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link)** (about 2 minutes). The clip above is sped up, with the wait during generation cut.
+[**▶ Try it without an API key**](https://github.com/sampro14/invoiceiq#try-it-in-30-seconds-no-api-key) · [Code](https://github.com/sampro14/invoiceiq)
 
-```mermaid
-flowchart LR
-  U[Game idea] --> CL[Clarify] --> PL[Plan] --> B[Build] --> V{Validate}
-  V -- pass --> G[Playable game]
-  V -- fail, max 2 --> RP[Repair] --> V
-```
+<sub>LangGraph · FastAPI · Gemini · Groq · Langfuse</sub>
 
-- **LangGraph state graph** with conditional routing for the clarification and repair loops
-- **Validator** runs a 10-point static check plus an optional LLM semantic check; the repair agent fixes only the broken parts
-- **Live streaming UI:** FastAPI streams each phase over Server-Sent Events; CLI and Docker modes are included
+</td>
+</tr>
+</table>
 
-**Stack:** Python, LangGraph, OpenAI, FastAPI, Server-Sent Events, Docker
+## Also built
 
----
+- **[Agentic Game Builder](https://github.com/sampro14/agentic-game-builder):** describe a game in plain English, and agents clarify, plan, build, validate and repair it into a playable browser game. [2-minute video](https://drive.google.com/file/d/1CUDBPYp_mgWnRbgeW4WAUWuMQs6DjtGV/view?usp=drive_link).
+- **[Text-to-image diffusion](https://github.com/sampro14/Text-to-Animated-video):** a latent diffusion pipeline built from parts: a VAE with an adversarial loss, a CLIP-style text encoder and a conditional UNet.
 
-## Other projects
+## Tools
 
-| Project | What it does | Tech stack |
-|---|---|---|
-| [Text-to-Animated-video](https://github.com/sampro14/Text-to-Animated-video) | Text-to-image latent diffusion pipeline: custom VAE with a GAN discriminator, CLIP-style text encoder, and a job API that streams generated images | PyTorch, Diffusers, Transformers, Accelerate, Flask |
-| [Fashion-recommender](https://github.com/sampro14/Fashion-recommender) | Recommends visually similar clothes using ResNet50 image embeddings and nearest-neighbour search | TensorFlow, Keras, scikit-learn, OpenCV, Streamlit |
-| [Celebrity-lookalike](https://github.com/sampro14/Celebrity-lookalike) | Detects a face in a photo and finds the closest celebrity match by embedding similarity | VGGFace, MTCNN, Keras, OpenCV, scikit-learn, Streamlit |
-
----
-
-## Tech stack
-
-| Area | Tools |
-|---|---|
-| **Languages** | Python, C++, JavaScript, SQL |
-| **Agents and LLMs** | LangGraph, LangChain, OpenAI, Anthropic, Gemini, DeepSeek |
-| **Retrieval and memory** | pgvector, Qdrant, Pinecone, FAISS, hybrid BM25 + dense retrieval, RRF |
-| **Evaluation and LLM Ops** | DeepEval, LangSmith, MLflow, OpenTelemetry, pytest, Playwright |
-| **Machine learning** | PyTorch, TensorFlow, Keras, scikit-learn, Diffusers, Transformers, OpenCV |
-| **Backend and data** | FastAPI, Flask, PostgreSQL, Redis, SQLite, SQLAlchemy, Alembic |
-| **Frontend** | Next.js, Three.js, Streamlit |
-| **Infrastructure** | Docker, Docker Compose, GitHub Actions, GitHub Pages, Linux |
+**Agents and LLMs:** LangGraph, LangChain, OpenAI, Anthropic, Gemini, DeepSeek<br/>
+**Retrieval and memory:** pgvector, Qdrant, Pinecone, FAISS, hybrid BM25 + dense retrieval with RRF<br/>
+**Evaluation and LLMOps:** DeepEval, Langfuse, LangSmith, MLflow, OpenTelemetry, pytest, Playwright<br/>
+**Backend and infrastructure:** Python, FastAPI, PostgreSQL, Redis, SQLite, SQLAlchemy, Alembic, Docker, GitHub Actions, Linux<br/>
+**Machine learning:** PyTorch, TensorFlow, Keras, scikit-learn, Diffusers, Transformers, OpenCV<br/>
+**Also:** C++, JavaScript, SQL, Next.js, Three.js, Streamlit
 
 ---
 
 <p align="center">
-  Open to Applied AI and GenAI Engineer roles, remote or relocation. <a href="mailto:sam14atram@gmail.com">Get in touch</a>.
+  Open to <b>Applied AI</b>, <b>Forward Deployed</b> and <b>GenAI Engineer</b> roles: remote or relocation, full-time or contract.<br/>
+  <a href="mailto:sam14atram@gmail.com">Email me</a> · <a href="https://www.linkedin.com/in/sameer-atram">LinkedIn</a> · <a href="https://sampro14.github.io/">Portfolio</a>
 </p>
