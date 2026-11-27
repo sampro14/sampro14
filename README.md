@@ -82,7 +82,7 @@ Invoice PDFs, scans and photos to validated, ERP-ready JSON, approved only when 
 
 Checks include **UAE TRN** and **India GSTIN** formats; doubtful documents pause for human review. Held-out results on 300 documents are in progress.
 
-[**▶ Try it without an API key**](https://github.com/sampro14/invoiceiq#try-it-in-30-seconds-no-api-key) · [Code](https://github.com/sampro14/invoiceiq)
+[**▶ Live demo**](https://invoiceiq-qraz.onrender.com) · [Code](https://github.com/sampro14/invoiceiq)
 
 <sub>LangGraph · FastAPI · Gemini · Groq · Langfuse</sub>
 
